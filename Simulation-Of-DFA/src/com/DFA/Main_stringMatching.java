@@ -1,9 +1,9 @@
 
-package compiler.pkg5;
+package com.DFA;
 
 import java.util.Scanner;
 
-public class Compiler5 {
+public class Main_stringMatching {
 static char currentChar;
 static char currentState;
 static char[] LineCharArray;
@@ -27,7 +27,7 @@ static int LineCharArrayCount = 0;
                 LineCharArray = inputString.toCharArray();
                 LineCharArrayCount = 0;
                 //transitions start
-                Algorithm();
+                Algorithm();    //string matching algorithm
             }
         }
     }

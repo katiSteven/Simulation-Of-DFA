@@ -1,5 +1,5 @@
 
-package compiler.pkg5;
+package com.DFA;
 
 import java.util.Scanner;
 
