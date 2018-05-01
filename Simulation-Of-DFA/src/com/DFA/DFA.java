@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class DFA {
     static char DfaTable[][];
     static int noOfStates;
-    static int noOfTransitions;
+    static int noOfTerminals;
     static String[] finalStates;
     public static void GetDFATable() {
         //local scanner
@@ -16,15 +16,15 @@ public class DFA {
         //getting the DFA states to initialize the array
         System.out.println("Enter the no. of DFA states");
         noOfStates = getValues.nextInt()+1;
-        System.out.println("Enter the no. of DFA Transitions");
-        noOfTransitions = getValues.nextInt()+1;
+        System.out.println("Enter the no. of DFA Terminals");
+        noOfTerminals = getValues.nextInt()+1;
         
-        DfaTable = new char[noOfStates][noOfTransitions];
+        DfaTable = new char[noOfStates][noOfTerminals];
         
         //storing elements into the DFA table
         System.out.println("Enter all the elements in the DFA table");
         for(int i=0;i<noOfStates;i++){
-            for(int j=0;j<noOfTransitions;j++){
+            for(int j=0;j<noOfTerminals;j++){
                 if(i==0 && j==0){DfaTable[0][0] = ' ';continue;}
                 DfaTable[i][j] = dFAScanner.next().charAt(0);
             }
@@ -41,12 +41,12 @@ public class DFA {
     }
     
     public static char NextState(char currentstate,char currentchar){
-        for(int i=0;i<noOfStates;i++){
+        for(int i=1;i<noOfStates;i++){
             if(currentstate == DfaTable[i][0]){
-                if(currentchar == DfaTable[0][1]){
-                    return DfaTable[i][1];
-                }else if(currentchar == DfaTable[0][2]){
-                    return DfaTable[i][2];
+                for(int j=1;j<noOfTerminals;j++){
+                    if(currentchar == DfaTable[0][j]){
+                        return DfaTable[i][j];
+                    }
                 }
             }
         }
